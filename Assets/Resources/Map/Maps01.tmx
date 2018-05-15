@@ -1,7 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<map version="1.0" tiledversion="1.1.2" orientation="orthogonal" renderorder="left-up" width="20" height="20" tilewidth="500" tileheight="500" infinite="0" nextobjectid="1">
+<map version="1.0" tiledversion="1.1.2" orientation="orthogonal" renderorder="left-up" width="20" height="20" tilewidth="500" tileheight="500" infinite="0" nextobjectid="55">
  <tileset firstgid="1" source="Tileset/QABoxTiles.tsx"/>
- <layer name="Tile Layer 1" width="20" height="20">
+ <tileset firstgid="2" source="Tileset/QABoxObjects.tsx"/>
+ <layer name="Ground" width="20" height="20">
   <data encoding="csv">
 0,0,0,0,0,0,0,0,0,1,0,0,0,0,0,0,0,0,0,0,
 0,0,0,0,0,0,0,0,1,0,0,0,0,0,0,0,0,0,0,0,
@@ -25,4 +26,52 @@
 0,0,0,0,0,0,0,0,1,0,0,0,0,0,0,0,0,0,0,0
 </data>
  </layer>
+ <objectgroup name="Objects">
+  <object id="1" gid="2" x="4998" y="5002" width="500" height="500"/>
+  <object id="48" gid="5" x="6500" y="5000" width="400" height="600"/>
+  <object id="52" gid="4" x="7500" y="5000" width="400" height="600"/>
+  <object id="54" gid="3" x="9000" y="5000" width="400" height="600"/>
+ </objectgroup>
+ <objectgroup name="CamLock" visible="0">
+  <object id="5" gid="6" x="3500" y="5500" width="500" height="500"/>
+  <object id="8" gid="6" x="4000" y="5500" width="500" height="500"/>
+  <object id="9" gid="6" x="4500" y="5500" width="500" height="500"/>
+  <object id="10" gid="6" x="5000" y="5500" width="500" height="500"/>
+  <object id="11" gid="6" x="5500" y="5500" width="500" height="500"/>
+  <object id="12" gid="6" x="6000" y="5500" width="500" height="500"/>
+  <object id="13" gid="6" x="1500" y="5500" width="500" height="500"/>
+  <object id="14" gid="6" x="2000" y="5500" width="500" height="500"/>
+  <object id="15" gid="6" x="2500" y="5500" width="500" height="500"/>
+  <object id="16" gid="6" x="3000" y="5500" width="500" height="500"/>
+  <object id="17" gid="6" x="1000" y="5500" width="500" height="500"/>
+  <object id="18" gid="6" x="500" y="5500" width="500" height="500"/>
+  <object id="19" gid="6" x="0" y="5500" width="500" height="500"/>
+  <object id="20" gid="6" x="0" y="5000" width="500" height="500"/>
+  <object id="21" gid="6" x="0" y="4500" width="500" height="500"/>
+  <object id="22" gid="6" x="0" y="4000" width="500" height="500"/>
+  <object id="23" gid="6" x="0" y="3500" width="500" height="500"/>
+  <object id="24" gid="6" x="0" y="3000" width="500" height="500"/>
+  <object id="25" gid="6" x="0" y="2500" width="500" height="500"/>
+  <object id="26" gid="6" x="0" y="2000" width="500" height="500"/>
+  <object id="27" gid="6" x="0" y="1500" width="500" height="500"/>
+  <object id="28" gid="6" x="0" y="1000" width="500" height="500"/>
+  <object id="29" gid="6" x="0" y="500" width="500" height="500"/>
+  <object id="30" gid="6" x="6500" y="5500" width="500" height="500"/>
+  <object id="31" gid="6" x="7000" y="5500" width="500" height="500"/>
+  <object id="32" gid="6" x="7500" y="5500" width="500" height="500"/>
+  <object id="33" gid="6" x="8000" y="5500" width="500" height="500"/>
+  <object id="34" gid="6" x="8500" y="5500" width="500" height="500"/>
+  <object id="35" gid="6" x="9000" y="5500" width="500" height="500"/>
+  <object id="36" gid="6" x="9500" y="5500" width="500" height="500"/>
+  <object id="37" gid="6" x="9500" y="5000" width="500" height="500"/>
+  <object id="38" gid="6" x="9500" y="4500" width="500" height="500"/>
+  <object id="39" gid="6" x="9500" y="4000" width="500" height="500"/>
+  <object id="40" gid="6" x="9500" y="3500" width="500" height="500"/>
+  <object id="41" gid="6" x="9500" y="3000" width="500" height="500"/>
+  <object id="42" gid="6" x="9500" y="2500" width="500" height="500"/>
+  <object id="43" gid="6" x="9500" y="1500" width="500" height="500"/>
+  <object id="44" gid="6" x="9500" y="2000" width="500" height="500"/>
+  <object id="45" gid="6" x="9500" y="1000" width="500" height="500"/>
+  <object id="46" gid="6" x="9500" y="500" width="500" height="500"/>
+ </objectgroup>
 </map>

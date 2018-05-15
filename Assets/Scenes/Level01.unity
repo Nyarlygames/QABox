@@ -205,6 +205,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 51f05ac6d85620f41aa6094ca1dc29fb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  mapfile: Assets/Resources/Map/Maps01.tmx
 --- !u!4 &1429235776
 Transform:
   m_ObjectHideFlags: 0
@@ -229,8 +230,9 @@ GameObject:
   - component: {fileID: 1945641791}
   - component: {fileID: 1945641790}
   - component: {fileID: 1945641789}
+  - component: {fileID: 1945641793}
   m_Layer: 0
-  m_Name: Main Camera
+  m_Name: Camera
   m_TagString: MainCamera
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -269,8 +271,8 @@ Camera:
   near clip plane: 0.3
   far clip plane: 1000
   field of view: 60
-  orthographic: 0
-  orthographic size: 5
+  orthographic: 1
+  orthographic size: 15
   m_Depth: -1
   m_CullingMask:
     serializedVersion: 2
@@ -299,3 +301,14 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1945641793
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1945641788}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 06e246629e1b9e943916ce053da962ce, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
