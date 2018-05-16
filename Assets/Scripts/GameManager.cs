@@ -26,6 +26,7 @@ public class GameManager : MonoBehaviour {
         SpriteList.Add("Panel_Play", Resources.Load<Sprite>("Map/Tileset/Panel_DontPlay"));
         SpriteList.Add("Panel_Options", Resources.Load<Sprite>("Map/Tileset/Panel_Options"));
         SpriteList.Add("CamLock", Resources.Load<Sprite>("Map/Tileset/CamLock"));
+        SpriteList.Add("Ladder", Resources.Load<Sprite>("Map/Tileset/Ladder"));
     }
 	
 	// Update is called once per frame

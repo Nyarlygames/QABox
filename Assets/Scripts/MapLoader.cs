@@ -112,17 +112,31 @@ public class MapLoader : MonoBehaviour {
                 placement.z += 2;
                 curObj.GetComponent<Transform>().position = placement;
                 curObj.transform.SetParent(emptyGO.GetComponent<Transform>());
-
-                if (obj.modifiers.ContainsKey("spawner") && (obj.modifiers["spawner"] == "true"))
-                {
-                    GM.Player = new GameObject("Player");
-                    GM.Player.tag = "player";
-                    GM.Player.AddComponent<PlayerController>();
-                    GM.Camera = GameObject.Find("Camera");
-                    GM.Camera.GetComponent<CameraController>().ReplaceCam(curObj);
-                }
+                checkObjModifiers(obj, curObj);
             }
         }
+    }
+
+    public void checkObjModifiers(ObjectSave obj, GameObject curObj)
+    {
+        if (obj.modifiers.ContainsKey("spawner") && (obj.modifiers["spawner"] == "true"))
+        {
+            GM.Player = new GameObject("Player");
+            GM.Player.tag = "player";
+            GM.Player.AddComponent<PlayerController>();
+            GM.Camera = GameObject.Find("Camera");
+            GM.Camera.GetComponent<CameraController>().ReplaceCam(curObj);
+        }
+        if (obj.modifiers.ContainsKey("visible") && (obj.modifiers["visible"] == "false"))
+        {
+            Destroy(curObj.GetComponent<SpriteRenderer>());
+        }
+        if (obj.modifiers.ContainsKey("collider") && (obj.modifiers["collider"] == "true"))
+        {
+            BoxCollider2D mybox = curObj.AddComponent<BoxCollider2D>();
+            mybox.isTrigger = false;
+        }
+
     }
 
     public void LoadMap(string mapfile, MapSave map)
