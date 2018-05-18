@@ -7,7 +7,6 @@ using System;
 public class MapLoader : MonoBehaviour {
 
     GameManager GM;
-    public string mapfile = "";
 
 	// Use this for initialization
 	void Start ()
@@ -54,7 +53,7 @@ public class MapLoader : MonoBehaviour {
                                 tilego.GetComponent<Transform>().position = placement;
                                 tilego.transform.SetParent(emptyMap.GetComponent<Transform>());
                                 tilego.AddComponent<EdgeCollider2D>();
-                                tilego.GetComponent<EdgeCollider2D>().offset = new Vector2(0,2.5f);
+                                tilego.GetComponent<EdgeCollider2D>().offset = new Vector2(0,tilesprite.size.y/2);
                                 Rigidbody2D tilebody = tilego.AddComponent<Rigidbody2D>();
                                 tilebody.isKinematic = true;
                                 tilego.layer = LayerMask.NameToLayer("ground");
@@ -77,6 +76,7 @@ public class MapLoader : MonoBehaviour {
         Vector3 placement = Vector3.zero;
         foreach (ObjectSave obj in GM.map.objects)
         {
+            string id = "";
             GameObject curObj = null;
             TileSetSave tileset = new TileSetSave();
             if (obj.gid > GM.map.basevalue)
@@ -88,7 +88,7 @@ public class MapLoader : MonoBehaviour {
                         if ((obj.gid == tss.first + ts.id))
                         {
                             tileset = ts;
-                            string id = tileset.spritefile.Substring(0, ts.spritefile.IndexOf("."));
+                            id = tileset.spritefile.Substring(0, ts.spritefile.IndexOf("."));
                             foreach (string key in tileset.modifiers.Keys)
                             {
                                 if (obj.modifiers.ContainsKey(key) == false)
@@ -96,12 +96,15 @@ public class MapLoader : MonoBehaviour {
                             }
 
                             curObj = new GameObject(id + "_[" + obj.x + "/" + obj.y + "]");
+                            ObjectController objControl = curObj.AddComponent<ObjectController>();
+                            objControl.objSave = obj;
                             SpriteRenderer objsprite = curObj.AddComponent<SpriteRenderer>();
                             objsprite.sprite = GM.SpriteList[id];
                             if (obj.width != tileset.width)
                             {
                                 curObj.GetComponent<Transform>().localScale = new Vector3((float)obj.width / tileset.width, (float)obj.height / tileset.height, 0.0f);
                             }
+                            GM.ObjectsGO.Add(curObj);
                             break;
                         }
                     }
@@ -116,21 +119,21 @@ public class MapLoader : MonoBehaviour {
                 //placement.z += 2;
                 curObj.GetComponent<Transform>().position = placement;
                 curObj.transform.SetParent(emptyGO.GetComponent<Transform>());
-                checkObjModifiers(obj, curObj);
+                checkObjModifiers(obj, curObj, id);
             }
         }
     }
 
-    public void checkObjModifiers(ObjectSave obj, GameObject curObj)
+    public void checkObjModifiers(ObjectSave obj, GameObject curObj, string id)
     {
         if (obj.modifiers.ContainsKey("spawner") && (obj.modifiers["spawner"] == "true"))
         {
             GM.Player = new GameObject("Player");
             GM.Player.tag = "player";
             GM.Player.GetComponent<Transform>().position = new Vector3(curObj.GetComponent<Transform>().position.x, curObj.GetComponent<Transform>().position.y, GM.ZPlayer);
-            GM.Player.AddComponent<PlayerController>();
+            PlayerController PControl = GM.Player.AddComponent<PlayerController>();
             GM.Camera = GameObject.Find("Camera");
-            GM.Camera.GetComponent<CameraController>().ReplaceCam(curObj);
+            GM.Camera.GetComponent<CameraController>().ReplaceCam(curObj, PControl);
             Destroy(curObj.GetComponent<SpriteRenderer>());
         }
         if (obj.modifiers.ContainsKey("visible") && (obj.modifiers["visible"] == "false"))
@@ -140,8 +143,15 @@ public class MapLoader : MonoBehaviour {
         if (obj.modifiers.ContainsKey("collider") && (obj.modifiers["collider"] == "true"))
         {
             curObj.layer = LayerMask.NameToLayer("ground");
-            BoxCollider2D mybox = curObj.AddComponent<BoxCollider2D>();
+            EdgeCollider2D mybox = curObj.AddComponent<EdgeCollider2D>();
+            mybox.offset = new Vector2(0, curObj.GetComponent<SpriteRenderer>().size.y / 2);
             mybox.isTrigger = false;
+        }
+        if ((id != "") && (string.Compare(id, "LevelVals") == 0))
+        {
+            PlayerPrefs.SetString("level", obj.modifiers["Name"]);
+            PlayerPrefs.SetString("nextmap", obj.modifiers["NextLevel"]);
+            GM.Player.AddComponent(Type.GetType(obj.modifiers["SpeScript"]));
         }
 
     }

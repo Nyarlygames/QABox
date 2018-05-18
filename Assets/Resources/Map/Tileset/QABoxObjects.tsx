@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<tileset name="QABoxObjects" tilewidth="500" tileheight="600" tilecount="6" columns="0">
+<tileset name="QABoxObjects" tilewidth="500" tileheight="600" tilecount="7" columns="0">
  <grid orientation="orthogonal" width="1" height="1"/>
  <tile id="0">
   <properties>
@@ -26,7 +26,16 @@
  <tile id="5">
   <properties>
    <property name="collider" type="bool" value="true"/>
+   <property name="panel" value=""/>
   </properties>
   <image width="500" height="500" source="Ladder.png"/>
+ </tile>
+ <tile id="6">
+  <properties>
+   <property name="Name" value=""/>
+   <property name="NextLevel" value=""/>
+   <property name="SpeScript" value=""/>
+  </properties>
+  <image width="500" height="500" source="LevelVals.png"/>
  </tile>
 </tileset>

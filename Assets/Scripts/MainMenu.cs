@@ -32,7 +32,9 @@ public class MainMenu : MonoBehaviour {
 
     void LaunchLevel()
     {
-        GM.LoadLevel("MainMenu", "Level01");
+        PlayerPrefs.SetString("level", "01");
+        PlayerPrefs.SetString("map", "Assets/Resources/Map/Maps01.tmx");
+        GM.LoadLevel();
     }
 	
 	// Update is called once per frame

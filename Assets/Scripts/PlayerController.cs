@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class PlayerController : MonoBehaviour {
     SpriteRenderer PSpriteRend;
-    Transform PTransform;
+    public Transform PTransform;
     BoxCollider2D PBoxCollider;
     Rigidbody2D PRigidb;
     public float speed = 10.0f;
