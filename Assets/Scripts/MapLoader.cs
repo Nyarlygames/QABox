@@ -53,6 +53,10 @@ public class MapLoader : MonoBehaviour {
                                 placement = new Vector3((x * GM.map.tilesizex + GM.map.tilesizex / 2.0f) / 100.0f, (y * GM.map.tilesizey + GM.map.tilesizey / 2.0f) / 100.0f, GM.ZGround);
                                 tilego.GetComponent<Transform>().position = placement;
                                 tilego.transform.SetParent(emptyMap.GetComponent<Transform>());
+                                tilego.AddComponent<BoxCollider2D>();
+                                Rigidbody2D tilebody = tilego.AddComponent<Rigidbody2D>();
+                                tilebody.isKinematic = true;
+                                tilego.layer = LayerMask.NameToLayer("ground");
                                 GM.TilesGO.Add(tilego);
                                 break;
                             }
@@ -92,7 +96,6 @@ public class MapLoader : MonoBehaviour {
 
                             curObj = new GameObject(id + "_[" + obj.x + "/" + obj.y + "]");
                             SpriteRenderer objsprite = curObj.AddComponent<SpriteRenderer>();
-                            Debug.Log(id);
                             objsprite.sprite = GM.SpriteList[id];
                             if (obj.width != tileset.width)
                             {
@@ -109,7 +112,7 @@ public class MapLoader : MonoBehaviour {
             {
                 placement = Vector3.zero;
                 placement = new Vector3((obj.x + obj.offsetx + obj.width / 2) / 100.0f, ((GM.map.sizey * GM.map.tilesizey) - ((obj.y + obj.offsety - obj.height / 2.0f))) / 100.0f, GM.ZObject); 
-                placement.z += 2;
+                //placement.z += 2;
                 curObj.GetComponent<Transform>().position = placement;
                 curObj.transform.SetParent(emptyGO.GetComponent<Transform>());
                 checkObjModifiers(obj, curObj);
@@ -123,9 +126,11 @@ public class MapLoader : MonoBehaviour {
         {
             GM.Player = new GameObject("Player");
             GM.Player.tag = "player";
+            GM.Player.GetComponent<Transform>().position = new Vector3(curObj.GetComponent<Transform>().position.x, curObj.GetComponent<Transform>().position.y, GM.ZPlayer);
             GM.Player.AddComponent<PlayerController>();
             GM.Camera = GameObject.Find("Camera");
             GM.Camera.GetComponent<CameraController>().ReplaceCam(curObj);
+            Destroy(curObj.GetComponent<SpriteRenderer>());
         }
         if (obj.modifiers.ContainsKey("visible") && (obj.modifiers["visible"] == "false"))
         {
@@ -133,6 +138,7 @@ public class MapLoader : MonoBehaviour {
         }
         if (obj.modifiers.ContainsKey("collider") && (obj.modifiers["collider"] == "true"))
         {
+            curObj.layer = LayerMask.NameToLayer("ground");
             BoxCollider2D mybox = curObj.AddComponent<BoxCollider2D>();
             mybox.isTrigger = false;
         }

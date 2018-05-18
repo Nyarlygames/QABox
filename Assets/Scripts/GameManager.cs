@@ -7,11 +7,13 @@ public class GameManager : MonoBehaviour {
     public MapSave map = new MapSave();
     public MapLoader maploader;
     public GameObject Player;
+    public PlayerSave PlayerSave;
     public GameObject Camera;
     AsyncOperation asyncLoadLevel;
     public List<GameObject> TilesGO = new List<GameObject>();
-    public int ZGround = 0;
-    public int ZObject = 0;
+    public int ZGround = 2;
+    public int ZObject = 1;
+    public int ZPlayer = 0;
     public int ZCamera = -20;
     public Dictionary<string, Sprite> SpriteList = new Dictionary<string, Sprite>();
     public bool loading = false;
@@ -27,6 +29,7 @@ public class GameManager : MonoBehaviour {
         SpriteList.Add("Panel_Options", Resources.Load<Sprite>("Map/Tileset/Panel_Options"));
         SpriteList.Add("CamLock", Resources.Load<Sprite>("Map/Tileset/CamLock"));
         SpriteList.Add("Ladder", Resources.Load<Sprite>("Map/Tileset/Ladder"));
+        SpriteList.Add("Player", Resources.Load<Sprite>("Map/Tileset/Player"));
     }
 	
 	// Update is called once per frame

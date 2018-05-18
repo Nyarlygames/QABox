@@ -8,7 +8,6 @@ public class CameraController : MonoBehaviour {
 	// Use this for initialization
 	void Start ()
     {
-        Debug.Log("CAMSTART");
     }
 	
 	// Update is called once per frame
@@ -18,7 +17,6 @@ public class CameraController : MonoBehaviour {
 
     public void ReplaceCam(GameObject obj)
     {
-        Debug.Log("CAMSTART2");
         GM = GameObject.Find("GameManager").GetComponent<GameManager>();
         gameObject.GetComponent<Transform>().position = new Vector3(obj.transform.position.x, obj.transform.position.y, GM.ZCamera);
     }

@@ -157,13 +157,16 @@ MonoBehaviour:
       name: 
     objectgroups: []
     objects: []
+  maploader: {fileID: 0}
   Player: {fileID: 0}
+  PlayerSave: {fileID: 0}
   Camera: {fileID: 0}
   TilesGO: []
-  ZGround: 0
-  ZObject: 0
+  ZGround: 2
+  ZObject: 1
+  ZPlayer: 0
   ZCamera: -20
-  load: 0
+  loading: 0
 --- !u!4 &325000111
 Transform:
   m_ObjectHideFlags: 0
