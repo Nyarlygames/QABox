@@ -53,7 +53,8 @@ public class MapLoader : MonoBehaviour {
                                 placement = new Vector3((x * GM.map.tilesizex + GM.map.tilesizex / 2.0f) / 100.0f, (y * GM.map.tilesizey + GM.map.tilesizey / 2.0f) / 100.0f, GM.ZGround);
                                 tilego.GetComponent<Transform>().position = placement;
                                 tilego.transform.SetParent(emptyMap.GetComponent<Transform>());
-                                tilego.AddComponent<BoxCollider2D>();
+                                tilego.AddComponent<EdgeCollider2D>();
+                                tilego.GetComponent<EdgeCollider2D>().offset = new Vector2(0,2.5f);
                                 Rigidbody2D tilebody = tilego.AddComponent<Rigidbody2D>();
                                 tilebody.isKinematic = true;
                                 tilego.layer = LayerMask.NameToLayer("ground");
