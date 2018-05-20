@@ -130,8 +130,8 @@ public class MapLoader : MonoBehaviour {
         {
             GM.Player = new GameObject("Player");
             GM.Player.tag = "player";
-            GM.Player.GetComponent<Transform>().position = new Vector3(curObj.GetComponent<Transform>().position.x, curObj.GetComponent<Transform>().position.y, GM.ZPlayer);
             PlayerController PControl = GM.Player.AddComponent<PlayerController>();
+            PControl.SetPosition(curObj.GetComponent<Transform>(), curObj.GetComponent<SpriteRenderer>());
             GM.Camera = GameObject.Find("Camera");
             GM.Camera.GetComponent<CameraController>().ReplaceCam(curObj, PControl);
             Destroy(curObj.GetComponent<SpriteRenderer>());

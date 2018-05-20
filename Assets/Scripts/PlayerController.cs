@@ -8,14 +8,15 @@ public class PlayerController : MonoBehaviour {
     BoxCollider2D PBoxCollider;
     Rigidbody2D PRigidb;
     public float speed = 10.0f;
-    public float speedjump = 500.0f;
+    public float speedjump = 1200.0f;
+    public float gravity = 5.0f;
     public bool grounded = false;
     GameManager GM;
     Quaternion RotLeft;
     Quaternion RotRight;
     int direction = 0; // 1 left 2 right 0 none
     
-    void Start ()
+    void Awake()
     {
         GM = GameObject.Find("GameManager").GetComponent<GameManager>();
         PSpriteRend = gameObject.AddComponent<SpriteRenderer>();
@@ -24,6 +25,7 @@ public class PlayerController : MonoBehaviour {
         PBoxCollider = gameObject.AddComponent<BoxCollider2D>();
         PRigidb = gameObject.AddComponent<Rigidbody2D>();
         PRigidb.constraints = RigidbodyConstraints2D.FreezeRotation;
+        PRigidb.gravityScale = gravity;
         RotLeft = Quaternion.Euler(new Vector3(0, 180, 0));
         RotRight = Quaternion.Euler(Vector3.zero);
     }
@@ -31,7 +33,7 @@ public class PlayerController : MonoBehaviour {
 	void Update ()
     {
         // set movement
-        if (Input.GetKeyDown(KeyCode.LeftArrow) && (direction ==0) && (grounded == true))
+        if (Input.GetKeyDown(KeyCode.LeftArrow) && (direction == 0) && (grounded == true))
         {
             direction = 1;
             if (PTransform.eulerAngles.y == 0)
@@ -80,6 +82,11 @@ public class PlayerController : MonoBehaviour {
             grounded = false;
             PRigidb.AddForce(Vector2.up * speedjump, ForceMode2D.Force);
         }
+    }
+
+    public void SetPosition(Transform spawnerPos, SpriteRenderer spawnerSprite)
+    {
+        PTransform.position = new Vector3(spawnerPos.position.x + ((PSpriteRend.size.x / 2) - (spawnerSprite.size.x / 2)), spawnerPos.position.y + ((PSpriteRend.size.y / 2) - (spawnerSprite.size.y / 2)), GM.ZPlayer);
     }
 
     void OnCollisionEnter2D(Collision2D coll)

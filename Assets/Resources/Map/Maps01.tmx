@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<map version="1.0" tiledversion="1.1.2" orientation="orthogonal" renderorder="left-up" width="20" height="20" tilewidth="500" tileheight="500" infinite="0" nextobjectid="79">
+<map version="1.0" tiledversion="1.1.2" orientation="orthogonal" renderorder="left-up" width="20" height="20" tilewidth="500" tileheight="500" infinite="0" nextobjectid="82">
  <tileset firstgid="1" source="Tileset/QABoxTiles.tsx"/>
  <tileset firstgid="2" source="Tileset/QABoxObjects.tsx"/>
  <layer name="Ground" width="20" height="20">
@@ -55,20 +55,7 @@
   </object>
  </objectgroup>
  <objectgroup name="CamLock">
-  <object id="63" gid="6" x="9500" y="1500" width="500" height="500"/>
-  <object id="64" gid="6" x="9500" y="2000" width="500" height="500"/>
-  <object id="65" gid="6" x="9500" y="2500" width="500" height="500"/>
-  <object id="66" gid="6" x="9500" y="3000" width="500" height="500"/>
-  <object id="67" gid="6" x="9500" y="3500" width="500" height="500"/>
-  <object id="68" gid="6" x="9500" y="4000" width="500" height="500"/>
-  <object id="69" gid="6" x="9500" y="4500" width="500" height="500"/>
-  <object id="70" gid="6" x="9500" y="4500" width="500" height="500"/>
-  <object id="71" gid="6" x="9500" y="5000" width="500" height="500"/>
-  <object id="72" gid="6" x="2500" y="5000" width="500" height="500"/>
-  <object id="73" gid="6" x="2500" y="4500" width="500" height="500"/>
-  <object id="74" gid="6" x="2500" y="4000" width="500" height="500"/>
-  <object id="75" gid="6" x="2500" y="3500" width="500" height="500"/>
-  <object id="76" gid="6" x="2500" y="3000" width="500" height="500"/>
-  <object id="77" gid="6" x="2500" y="2500" width="500" height="500"/>
+  <object id="80" gid="6" x="9500" y="5504" width="500" height="5508"/>
+  <object id="81" gid="6" x="2500" y="5504" width="500" height="5508"/>
  </objectgroup>
 </map>
