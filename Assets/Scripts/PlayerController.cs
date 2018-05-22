@@ -2,11 +2,12 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class PlayerController : MonoBehaviour {
-    SpriteRenderer PSpriteRend;
+public class PlayerController : MonoBehaviour
+{
+    public SpriteRenderer PSpriteRend;
     public Transform PTransform;
     BoxCollider2D PBoxCollider;
-    Rigidbody2D PRigidb;
+    public Rigidbody2D PRigidb;
     public float speed = 10.0f;
     public float speedjump = 1200.0f;
     public float gravity = 5.0f;
@@ -15,7 +16,7 @@ public class PlayerController : MonoBehaviour {
     Quaternion RotLeft;
     Quaternion RotRight;
     int direction = 0; // 1 left 2 right 0 none
-    
+
     void Awake()
     {
         GM = GameObject.Find("GameManager").GetComponent<GameManager>();
@@ -29,8 +30,8 @@ public class PlayerController : MonoBehaviour {
         RotLeft = Quaternion.Euler(new Vector3(0, 180, 0));
         RotRight = Quaternion.Euler(Vector3.zero);
     }
-	
-	void Update ()
+
+    void Update()
     {
         // set movement
         if (Input.GetKeyDown(KeyCode.LeftArrow) && (direction == 0) && (grounded == true))
@@ -75,7 +76,7 @@ public class PlayerController : MonoBehaviour {
                 direction = 0;
             PRigidb.velocity = Vector2.zero;
         }
-        
+
         // jumps
         if (Input.GetKey(KeyCode.UpArrow) && (grounded == true))
         {
@@ -91,22 +92,31 @@ public class PlayerController : MonoBehaviour {
 
     void OnCollisionEnter2D(Collision2D coll)
     {
-        if (grounded == false)
+        if (coll.collider.tag == "tile")
         {
-            grounded = true;
-            if ((direction == 1) && (Input.GetKey(KeyCode.RightArrow)) && (!Input.GetKey(KeyCode.LeftArrow)))
+            if (grounded == false)
             {
-                direction = 2;
-                PTransform.rotation = RotRight;
+                grounded = true;
+                if ((direction == 1) && (Input.GetKey(KeyCode.RightArrow)) && (!Input.GetKey(KeyCode.LeftArrow)))
+                {
+                    direction = 2;
+                    PTransform.rotation = RotRight;
+                }
+                else if ((direction == 2) && (!Input.GetKey(KeyCode.RightArrow)) && (Input.GetKey(KeyCode.LeftArrow)))
+                {
+                    direction = 1;
+                    PTransform.rotation = RotLeft;
+                }
+                else if ((!Input.GetKey(KeyCode.LeftArrow)) && (!Input.GetKey(KeyCode.RightArrow)))
+                    direction = 0;
+                PRigidb.velocity = Vector2.zero;
             }
-            else if ((direction == 2) && (!Input.GetKey(KeyCode.RightArrow)) && (Input.GetKey(KeyCode.LeftArrow)))
-            {
-                direction = 1;
-                PTransform.rotation = RotLeft;
-            }
-            else if ((!Input.GetKey(KeyCode.LeftArrow)) && (!Input.GetKey(KeyCode.RightArrow)))
-                direction = 0;
-            PRigidb.velocity = Vector2.zero;
         }
+    }
+
+    void OnTriggerEnter2D(Collider2D coll)
+    {
+        if (coll.tag == "camunlock")
+            GM.Camera.UnlockCam(coll.GetComponent<ObjectController>());
     }
 }

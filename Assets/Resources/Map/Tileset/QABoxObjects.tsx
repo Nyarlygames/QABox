@@ -1,9 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<tileset name="QABoxObjects" tilewidth="500" tileheight="600" tilecount="7" columns="0">
+<tileset name="QABoxObjects" tilewidth="500" tileheight="600" tilecount="8" columns="0">
  <grid orientation="orthogonal" width="1" height="1"/>
  <tile id="0">
   <properties>
    <property name="spawner" type="bool" value="true"/>
+   <property name="visible" type="bool" value="false"/>
   </properties>
   <image width="500" height="500" source="Spawner.png"/>
  </tile>
@@ -18,7 +19,10 @@
  </tile>
  <tile id="4">
   <properties>
+   <property name="active" type="bool" value="true"/>
    <property name="camcollider" type="bool" value="true"/>
+   <property name="forbid" value=""/>
+   <property name="lockid" type="int" value="0"/>
    <property name="visible" type="bool" value="false"/>
   </properties>
   <image width="500" height="500" source="CamLock.png"/>
@@ -37,5 +41,14 @@
    <property name="SpeScript" value=""/>
   </properties>
   <image width="500" height="500" source="LevelVals.png"/>
+ </tile>
+ <tile id="7">
+  <properties>
+   <property name="active" type="bool" value="true"/>
+   <property name="camcollider" type="bool" value="false"/>
+   <property name="unlockid" type="int" value="0"/>
+   <property name="visible" type="bool" value="false"/>
+  </properties>
+  <image width="500" height="500" source="CamUnlock.png"/>
  </tile>
 </tileset>

@@ -7,6 +7,8 @@ TagManager:
   - object
   - tile
   - player
+  - camlock
+  - camunlock
   layers:
   - Default
   - TransparentFX
@@ -17,7 +19,7 @@ TagManager:
   - 
   - 
   - ground
-  - 
+  - camera
   - 
   - 
   - 

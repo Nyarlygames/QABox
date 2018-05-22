@@ -8,7 +8,7 @@ public class GameManager : MonoBehaviour {
     public MapLoader maploader;
     public GameObject Player;
     public PlayerSave PlayerSave;
-    public GameObject Camera;
+    public CameraController Camera;
     AsyncOperation asyncLoadLevel;
     public List<GameObject> TilesGO = new List<GameObject>();
     public List<GameObject> ObjectsGO = new List<GameObject>();
@@ -28,6 +28,7 @@ public class GameManager : MonoBehaviour {
         SpriteList.Add("Panel_Play", Resources.Load<Sprite>("Map/Tileset/Panel_Play"));
         SpriteList.Add("Panel_Options", Resources.Load<Sprite>("Map/Tileset/Panel_Options"));
         SpriteList.Add("CamLock", Resources.Load<Sprite>("Map/Tileset/CamLock"));
+        SpriteList.Add("CamUnlock", Resources.Load<Sprite>("Map/Tileset/CamUnlock"));
         SpriteList.Add("LevelVals", Resources.Load<Sprite>("Map/Tileset/LevelVals"));
         SpriteList.Add("Ladder", Resources.Load<Sprite>("Map/Tileset/Ladder"));
         SpriteList.Add("Player", Resources.Load<Sprite>("Map/Tileset/Player"));
@@ -62,18 +63,13 @@ public class GameManager : MonoBehaviour {
         }
     }
 
-    public void LoadLevel(/*string oldscene, string newscene*/)
+    public void LoadLevel()
     {
         if (loading == false)
         {
             StartCoroutine(AddLevel());
             loading = true;
         }
-        /*if ((SceneManager.GetActiveScene().name == oldscene) && (loading == false))
-        {
-            StartCoroutine(AddLevel(newscene));
-            loading = true;
-        }*/
     }
 
     IEnumerator AddLevel()

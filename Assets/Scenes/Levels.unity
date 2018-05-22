@@ -205,7 +205,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 51f05ac6d85620f41aa6094ca1dc29fb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  mapfile: Assets/Resources/Map/Maps01.tmx
 --- !u!4 &1429235776
 Transform:
   m_ObjectHideFlags: 0

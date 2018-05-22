@@ -57,6 +57,7 @@ public class MapLoader : MonoBehaviour {
                                 Rigidbody2D tilebody = tilego.AddComponent<Rigidbody2D>();
                                 tilebody.isKinematic = true;
                                 tilego.layer = LayerMask.NameToLayer("ground");
+                                tilego.tag = "tile";
                                 GM.TilesGO.Add(tilego);
                                 break;
                             }
@@ -100,26 +101,21 @@ public class MapLoader : MonoBehaviour {
                             objControl.objSave = obj;
                             SpriteRenderer objsprite = curObj.AddComponent<SpriteRenderer>();
                             objsprite.sprite = GM.SpriteList[id];
-                            if (obj.width != tileset.width)
-                            {
+                            if ((obj.width != tileset.width) || (obj.height != tileset.height))
                                 curObj.GetComponent<Transform>().localScale = new Vector3((float)obj.width / tileset.width, (float)obj.height / tileset.height, 0.0f);
-                            }
-                            GM.ObjectsGO.Add(curObj);
+                            placement = Vector3.zero;
+                            placement = new Vector3((obj.x + obj.offsetx + obj.width / 2) / 100.0f, ((GM.map.sizey * GM.map.tilesizey) - ((obj.y + obj.offsety - obj.height / 2.0f))) / 100.0f, GM.ZObject);
+                            curObj.GetComponent<Transform>().position = placement;
+                            curObj.transform.SetParent(emptyGO.GetComponent<Transform>());
+                            checkObjModifiers(obj, curObj, id);
+                            if ((curObj != null))
+                                GM.ObjectsGO.Add(curObj);
                             break;
                         }
                     }
                     if (tileset.id > 0)
                         break;
                 }
-            }
-            if ((curObj != null))
-            {
-                placement = Vector3.zero;
-                placement = new Vector3((obj.x + obj.offsetx + obj.width / 2) / 100.0f, ((GM.map.sizey * GM.map.tilesizey) - ((obj.y + obj.offsety - obj.height / 2.0f))) / 100.0f, GM.ZObject); 
-                //placement.z += 2;
-                curObj.GetComponent<Transform>().position = placement;
-                curObj.transform.SetParent(emptyGO.GetComponent<Transform>());
-                checkObjModifiers(obj, curObj, id);
             }
         }
     }
@@ -132,14 +128,27 @@ public class MapLoader : MonoBehaviour {
             GM.Player.tag = "player";
             PlayerController PControl = GM.Player.AddComponent<PlayerController>();
             PControl.SetPosition(curObj.GetComponent<Transform>(), curObj.GetComponent<SpriteRenderer>());
-            GM.Camera = GameObject.Find("Camera");
-            GM.Camera.GetComponent<CameraController>().ReplaceCam(curObj, PControl);
-            Destroy(curObj.GetComponent<SpriteRenderer>());
+            GM.Camera = GameObject.Find("Camera").GetComponent<CameraController>();
+            GM.Camera.ReplaceCam(curObj, PControl);
         }
-        if (obj.modifiers.ContainsKey("visible") && (obj.modifiers["visible"] == "false"))
+        // cam lock
+        if (obj.modifiers.ContainsKey("camcollider") && (obj.modifiers["camcollider"] == "true"))
         {
-            Destroy(curObj.GetComponent<SpriteRenderer>());
+            curObj.layer = LayerMask.NameToLayer("camera");
+            curObj.tag = "camlock";
+            BoxCollider2D mybox = curObj.AddComponent<BoxCollider2D>();
+            mybox.isTrigger = true;
+
         }
+        // cam unlock
+        if (obj.modifiers.ContainsKey("camcollider") && (obj.modifiers["camcollider"] == "false"))
+        {
+            curObj.layer = LayerMask.NameToLayer("camera");
+            curObj.tag = "camunlock";
+            BoxCollider2D mybox = curObj.AddComponent<BoxCollider2D>();
+            mybox.isTrigger = true;;
+        }
+        // collider
         if (obj.modifiers.ContainsKey("collider") && (obj.modifiers["collider"] == "true"))
         {
             curObj.layer = LayerMask.NameToLayer("ground");
@@ -147,13 +156,20 @@ public class MapLoader : MonoBehaviour {
             mybox.offset = new Vector2(0, curObj.GetComponent<SpriteRenderer>().size.y / 2);
             mybox.isTrigger = false;
         }
+        // level variables
         if ((id != "") && (string.Compare(id, "LevelVals") == 0))
         {
             PlayerPrefs.SetString("level", obj.modifiers["Name"]);
             PlayerPrefs.SetString("nextmap", obj.modifiers["NextLevel"]);
             GM.Player.AddComponent(Type.GetType(obj.modifiers["SpeScript"]));
+            Destroy(curObj);
         }
-
+        // invisible
+        if (obj.modifiers.ContainsKey("visible") && (obj.modifiers["visible"] == "false"))
+        {
+            curObj.GetComponent<SpriteRenderer>().enabled = false;
+            //Destroy(curObj.GetComponent<SpriteRenderer>());
+        }
     }
 
     public void LoadMap(string mapfile, MapSave map)

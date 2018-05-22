@@ -1,20 +1,20 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<map version="1.0" tiledversion="1.1.2" orientation="orthogonal" renderorder="left-up" width="20" height="20" tilewidth="500" tileheight="500" infinite="0" nextobjectid="82">
+<map version="1.0" tiledversion="1.1.2" orientation="orthogonal" renderorder="left-up" width="20" height="20" tilewidth="500" tileheight="500" infinite="0" nextobjectid="94">
  <tileset firstgid="1" source="Tileset/QABoxTiles.tsx"/>
  <tileset firstgid="2" source="Tileset/QABoxObjects.tsx"/>
  <layer name="Ground" width="20" height="20">
   <data encoding="csv">
-0,0,0,0,0,0,0,0,0,1,0,0,0,0,0,0,0,0,0,0,
-0,0,0,0,0,0,0,0,1,0,0,0,0,0,0,0,0,0,0,0,
-0,0,0,0,0,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,
-0,0,0,0,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,
-0,0,0,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
-0,0,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
-0,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
-0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
-0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
-1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
-1,1,1,1,1,1,1,1,1,1,1,1,1,0,1,0,1,0,1,1,
+1,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,0,
+0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,0,
+0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,0,
+0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,0,
+0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,0,
+0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,0,
+0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,0,
+0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,0,
+0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,0,
+0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,0,
+0,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,0,
 0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
 0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
 0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
@@ -27,21 +27,21 @@
 </data>
  </layer>
  <objectgroup name="Objects">
-  <object id="1" gid="2" x="5000" y="5000" width="500" height="500"/>
-  <object id="48" gid="5" x="6500" y="5000" width="400" height="600"/>
-  <object id="52" gid="4" x="7500" y="5000" width="400" height="600"/>
-  <object id="54" gid="3" x="8500" y="5000" width="400" height="600"/>
-  <object id="57" gid="7" x="8500" y="5500" width="500" height="500">
+  <object id="1" gid="2" x="3000" y="5000" width="500" height="500"/>
+  <object id="48" gid="5" x="4500" y="5000" width="400" height="600"/>
+  <object id="52" gid="4" x="5500" y="5000" width="400" height="600"/>
+  <object id="54" gid="3" x="6500" y="5000" width="400" height="600"/>
+  <object id="57" gid="7" x="6500" y="5500" width="500" height="500">
    <properties>
     <property name="panel" value="nextlevel"/>
    </properties>
   </object>
-  <object id="58" gid="7" x="7500" y="5500" width="500" height="500">
+  <object id="58" gid="7" x="5500" y="5500" width="500" height="500">
    <properties>
     <property name="panel" value="options"/>
    </properties>
   </object>
-  <object id="59" gid="7" x="6500" y="5500" width="500" height="500">
+  <object id="59" gid="7" x="4500" y="5500" width="500" height="500">
    <properties>
     <property name="panel" value="play"/>
    </properties>
@@ -55,7 +55,17 @@
   </object>
  </objectgroup>
  <objectgroup name="CamLock">
-  <object id="80" gid="6" x="9500" y="5504" width="500" height="5508"/>
-  <object id="81" gid="6" x="2500" y="5504" width="500" height="5508"/>
+  <object id="92" gid="6" x="-2.1978" y="5504" width="504" height="5508">
+   <properties>
+    <property name="forbid" value="left"/>
+    <property name="lockid" type="int" value="-1"/>
+   </properties>
+  </object>
+  <object id="93" gid="6" x="9500" y="5496" width="500" height="5492">
+   <properties>
+    <property name="forbid" value="right"/>
+    <property name="lockid" type="int" value="-1"/>
+   </properties>
+  </object>
  </objectgroup>
 </map>
