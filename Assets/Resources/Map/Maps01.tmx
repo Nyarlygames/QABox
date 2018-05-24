@@ -1,20 +1,20 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<map version="1.0" tiledversion="1.1.2" orientation="orthogonal" renderorder="left-up" width="20" height="20" tilewidth="500" tileheight="500" infinite="0" nextobjectid="94">
+<map version="1.0" tiledversion="1.1.2" orientation="orthogonal" renderorder="left-up" width="20" height="20" tilewidth="500" tileheight="500" infinite="0" nextobjectid="118">
  <tileset firstgid="1" source="Tileset/QABoxTiles.tsx"/>
  <tileset firstgid="2" source="Tileset/QABoxObjects.tsx"/>
  <layer name="Ground" width="20" height="20">
   <data encoding="csv">
-1,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,0,
-0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,0,
-0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,0,
-0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,0,
-0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,0,
-0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,0,
-0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,0,
-0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,0,
-0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,0,
-0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,0,
-0,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,0,
+1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,1,1,1,1,1,1,1,1,0,1,0,1,0,1,1,1,1,1,0,
 0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
 0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
 0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
@@ -51,6 +51,106 @@
     <property name="Name" value="Level 01"/>
     <property name="NextLevel" value="Assets/Resources/Map/Maps02.tmx"/>
     <property name="SpeScript" value="PanelsDown"/>
+   </properties>
+  </object>
+  <object id="98" gid="10" x="500" y="5000" width="500" height="500">
+   <properties>
+    <property name="face" value="right"/>
+   </properties>
+  </object>
+  <object id="99" gid="10" x="500" y="4500" width="500" height="500">
+   <properties>
+    <property name="face" value="right"/>
+   </properties>
+  </object>
+  <object id="100" gid="10" x="500" y="4000" width="500" height="500">
+   <properties>
+    <property name="face" value="right"/>
+   </properties>
+  </object>
+  <object id="101" gid="10" x="500" y="3500" width="500" height="500">
+   <properties>
+    <property name="face" value="right"/>
+   </properties>
+  </object>
+  <object id="102" gid="10" x="500" y="3000" width="500" height="500">
+   <properties>
+    <property name="face" value="right"/>
+   </properties>
+  </object>
+  <object id="103" gid="10" x="500" y="2500" width="500" height="500">
+   <properties>
+    <property name="face" value="right"/>
+   </properties>
+  </object>
+  <object id="104" gid="10" x="500" y="2000" width="500" height="500">
+   <properties>
+    <property name="face" value="right"/>
+   </properties>
+  </object>
+  <object id="105" gid="10" x="500" y="1500" width="500" height="500">
+   <properties>
+    <property name="face" value="right"/>
+   </properties>
+  </object>
+  <object id="106" gid="10" x="500" y="1000" width="500" height="500">
+   <properties>
+    <property name="face" value="right"/>
+   </properties>
+  </object>
+  <object id="107" gid="10" x="500" y="500" width="500" height="500">
+   <properties>
+    <property name="face" value="right"/>
+   </properties>
+  </object>
+  <object id="108" gid="10" x="9000" y="500" width="500" height="500">
+   <properties>
+    <property name="face" value="left"/>
+   </properties>
+  </object>
+  <object id="109" gid="10" x="9000" y="1000" width="500" height="500">
+   <properties>
+    <property name="face" value="left"/>
+   </properties>
+  </object>
+  <object id="110" gid="10" x="9000" y="1500" width="500" height="500">
+   <properties>
+    <property name="face" value="left"/>
+   </properties>
+  </object>
+  <object id="111" gid="10" x="9000" y="2000" width="500" height="500">
+   <properties>
+    <property name="face" value="left"/>
+   </properties>
+  </object>
+  <object id="112" gid="10" x="9000" y="2500" width="500" height="500">
+   <properties>
+    <property name="face" value="left"/>
+   </properties>
+  </object>
+  <object id="113" gid="10" x="9000" y="3000" width="500" height="500">
+   <properties>
+    <property name="face" value="left"/>
+   </properties>
+  </object>
+  <object id="114" gid="10" x="9000" y="3500" width="500" height="500">
+   <properties>
+    <property name="face" value="left"/>
+   </properties>
+  </object>
+  <object id="115" gid="10" x="9000" y="4000" width="500" height="500">
+   <properties>
+    <property name="face" value="left"/>
+   </properties>
+  </object>
+  <object id="116" gid="10" x="9000" y="4500" width="500" height="500">
+   <properties>
+    <property name="face" value="left"/>
+   </properties>
+  </object>
+  <object id="117" gid="10" x="9000" y="5000" width="500" height="500">
+   <properties>
+    <property name="face" value="left"/>
    </properties>
   </object>
  </objectgroup>

@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<tileset name="QABoxObjects" tilewidth="500" tileheight="600" tilecount="8" columns="0">
+<tileset name="QABoxObjects" tilewidth="500" tileheight="600" tilecount="9" columns="0">
  <grid orientation="orthogonal" width="1" height="1"/>
  <tile id="0">
   <properties>
@@ -29,7 +29,7 @@
  </tile>
  <tile id="5">
   <properties>
-   <property name="collider" type="bool" value="true"/>
+   <property name="colliderground" type="bool" value="true"/>
    <property name="panel" value=""/>
   </properties>
   <image width="500" height="500" source="Ladder.png"/>
@@ -50,5 +50,12 @@
    <property name="visible" type="bool" value="false"/>
   </properties>
   <image width="500" height="500" source="CamUnlock.png"/>
+ </tile>
+ <tile id="8">
+  <properties>
+   <property name="collider" type="bool" value="true"/>
+   <property name="face" value=""/>
+  </properties>
+  <image width="500" height="500" source="Block.png"/>
  </tile>
 </tileset>

@@ -24,11 +24,13 @@ public class GameOverMenu : MonoBehaviour {
         GM.Cleanup();
         GM.LoadLevel();
     }
+
     void ReturnMain()
     {
         Destroy(GM.gameObject);
         SceneManager.LoadScene("MainMenu", LoadSceneMode.Single);
     }
+
     void Exit()
     {
         Application.Quit();

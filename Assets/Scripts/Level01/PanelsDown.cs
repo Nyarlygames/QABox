@@ -44,7 +44,6 @@ public class PanelsDown : MonoBehaviour {
                             Debug.Log("woops");
                             break;
                     }
-                    //Debug.Log("inside " + Ladder.GetComponent<ObjectController>().objSave.modifiers["panel"]);
                 }
             }
         }
@@ -53,15 +52,11 @@ public class PanelsDown : MonoBehaviour {
     void OnCollisionEnter2D(Collision2D coll)
     {
         if (coll.collider.name.Contains("Ladder"))
-        {
             Ladder = coll.gameObject;
-        }
     }
     void OnCollisionExit2D(Collision2D coll)
     {
         if (coll.collider.name.Contains("Ladder"))
-        {
             Ladder = null;
-        }
     }
 }

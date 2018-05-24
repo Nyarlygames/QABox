@@ -7,6 +7,7 @@ public class PlayerController : MonoBehaviour
     public SpriteRenderer PSpriteRend;
     public Transform PTransform;
     BoxCollider2D PBoxCollider;
+    PhysicsMaterial2D PMat;
     public Rigidbody2D PRigidb;
     public float speed = 10.0f;
     public float speedjump = 1200.0f;
@@ -27,12 +28,44 @@ public class PlayerController : MonoBehaviour
         PRigidb = gameObject.AddComponent<Rigidbody2D>();
         PRigidb.constraints = RigidbodyConstraints2D.FreezeRotation;
         PRigidb.gravityScale = gravity;
+        PMat = new PhysicsMaterial2D();
+        PMat.friction = 0;
+        PRigidb.sharedMaterial = PMat;
         RotLeft = Quaternion.Euler(new Vector3(0, 180, 0));
         RotRight = Quaternion.Euler(Vector3.zero);
     }
 
     void Update()
     {
+        // check grounded
+        if (Physics2D.IsTouchingLayers(PBoxCollider, 1 << LayerMask.NameToLayer("ground")) == true)
+        {
+            grounded = true;
+            if ((direction == 1) && (Input.GetKey(KeyCode.RightArrow)) && (!Input.GetKey(KeyCode.LeftArrow)))
+            {
+                direction = 2;
+                PTransform.rotation = RotRight;
+            }
+            else if ((direction == 2) && (!Input.GetKey(KeyCode.RightArrow)) && (Input.GetKey(KeyCode.LeftArrow)))
+            {
+                direction = 1;
+                PTransform.rotation = RotLeft;
+            }
+            else if ((direction == 0) && (Input.GetKey(KeyCode.RightArrow)) && (!Input.GetKey(KeyCode.LeftArrow)))
+            {
+                direction = 1;
+                PTransform.rotation = RotLeft;
+            }
+            else if ((direction == 0) && (!Input.GetKey(KeyCode.RightArrow)) && (Input.GetKey(KeyCode.LeftArrow)))
+            {
+                direction = 2;
+                PTransform.rotation = RotRight;
+            }
+            else if ((!Input.GetKey(KeyCode.LeftArrow)) && (!Input.GetKey(KeyCode.RightArrow)))
+                direction = 0;
+            PRigidb.velocity = Vector2.zero;
+        }
+
         // set movement
         if (Input.GetKeyDown(KeyCode.LeftArrow) && (direction == 0) && (grounded == true))
         {
@@ -49,9 +82,9 @@ public class PlayerController : MonoBehaviour
 
         // moves
         if (Input.GetKey(KeyCode.LeftArrow) && (direction == 1) && (grounded == true))
-            PRigidb.velocity = Vector2.left * speed;
+            PRigidb.velocity = new Vector3(-speed, 0.0f, 0.0f);
         if (Input.GetKey(KeyCode.RightArrow) && (direction == 2) && (grounded == true))
-            PRigidb.velocity = Vector2.right * speed;
+            PRigidb.velocity = new Vector3(speed, 0.0f, 0.0f);
 
         // reset movement and check for double inputs
         if (Input.GetKeyUp(KeyCode.LeftArrow) && (direction == 1) && (grounded == true))
@@ -94,9 +127,17 @@ public class PlayerController : MonoBehaviour
     {
         if (coll.collider.tag == "tile")
         {
-            if (grounded == false)
+            //RaycastHit2D hit = Physics2D.Raycast(PTransform.position, Vector2.down, 1.0f/*, 1 << LayerMask.NameToLayer("ground")*/);
+            //if (hit.collider != null)
+            //{
+            //    Debug.Log("hit ground " + hit.collider.tag + " / " + hit.collider.IsTouchingLayers(LayerMask.NameToLayer("ground")) /*+ " / " + hit.collider.IsTouching( */);
+            //}
+
+            // Physics2D.IsTouchingLayers(PBoxCollider, 1 << LayerMask.NameToLayer("ground"))
+            /*if (grounded == false)
             {
                 grounded = true;
+                GM.Camera.ResetY(PTransform.position.y + (PSpriteRend.size.y / 2) + (GM.map.tilesizey / 200));
                 if ((direction == 1) && (Input.GetKey(KeyCode.RightArrow)) && (!Input.GetKey(KeyCode.LeftArrow)))
                 {
                     direction = 2;
@@ -110,7 +151,7 @@ public class PlayerController : MonoBehaviour
                 else if ((!Input.GetKey(KeyCode.LeftArrow)) && (!Input.GetKey(KeyCode.RightArrow)))
                     direction = 0;
                 PRigidb.velocity = Vector2.zero;
-            }
+            }*/
         }
     }
 

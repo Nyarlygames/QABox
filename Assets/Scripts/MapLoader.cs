@@ -7,14 +7,12 @@ using System;
 public class MapLoader : MonoBehaviour {
 
     GameManager GM;
-
-	// Use this for initialization
+    
 	void Start ()
     {
         GM = GameObject.Find("GameManager").GetComponent<GameManager>();
     }
 	
-	// Update is called once per frame
 	void Update () {
 		
 	}
@@ -122,6 +120,7 @@ public class MapLoader : MonoBehaviour {
 
     public void checkObjModifiers(ObjectSave obj, GameObject curObj, string id)
     {
+        // spawning object
         if (obj.modifiers.ContainsKey("spawner") && (obj.modifiers["spawner"] == "true"))
         {
             GM.Player = new GameObject("Player");
@@ -148,13 +147,41 @@ public class MapLoader : MonoBehaviour {
             BoxCollider2D mybox = curObj.AddComponent<BoxCollider2D>();
             mybox.isTrigger = true;;
         }
-        // collider
-        if (obj.modifiers.ContainsKey("collider") && (obj.modifiers["collider"] == "true"))
+        // collider ground
+        if (obj.modifiers.ContainsKey("colliderground") && (obj.modifiers["colliderground"] == "true"))
         {
             curObj.layer = LayerMask.NameToLayer("ground");
             EdgeCollider2D mybox = curObj.AddComponent<EdgeCollider2D>();
             mybox.offset = new Vector2(0, curObj.GetComponent<SpriteRenderer>().size.y / 2);
             mybox.isTrigger = false;
+        }
+        // collider
+        if (obj.modifiers.ContainsKey("collider") && (obj.modifiers["collider"] == "true"))
+        {
+            curObj.layer = LayerMask.NameToLayer("collider");
+            if (obj.modifiers.ContainsKey("face") && (obj.modifiers["face"] == "right"))
+            {
+                EdgeCollider2D mybox = curObj.AddComponent<EdgeCollider2D>();
+                Vector2[] newPoints = new Vector2[2];
+                newPoints[0] = new Vector2(0.0f, -2.5f);
+                newPoints[1] = new Vector2(0.0f, 2.5f);
+                mybox.points = newPoints;
+                mybox.offset = new Vector2(curObj.GetComponent<SpriteRenderer>().size.x / 2, 0.0f);
+            }
+            else if (obj.modifiers.ContainsKey("face") && (obj.modifiers["face"] == "left"))
+            {
+                EdgeCollider2D mybox = curObj.AddComponent<EdgeCollider2D>();
+                Vector2[] newPoints = new Vector2[2];
+                newPoints[0] = new Vector2(0.0f, -2.5f);
+                newPoints[1] = new Vector2(0.0f, 2.5f);
+                mybox.points = newPoints;
+                mybox.offset = new Vector2(-curObj.GetComponent<SpriteRenderer>().size.x / 2, 0.0f);
+            }
+            else
+            {
+                BoxCollider2D mybox = curObj.AddComponent<BoxCollider2D>();
+                mybox.isTrigger = false;
+            }
         }
         // level variables
         if ((id != "") && (string.Compare(id, "LevelVals") == 0))
@@ -168,7 +195,6 @@ public class MapLoader : MonoBehaviour {
         if (obj.modifiers.ContainsKey("visible") && (obj.modifiers["visible"] == "false"))
         {
             curObj.GetComponent<SpriteRenderer>().enabled = false;
-            //Destroy(curObj.GetComponent<SpriteRenderer>());
         }
     }
 

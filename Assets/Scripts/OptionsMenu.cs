@@ -17,6 +17,7 @@ public class OptionsMenu : MonoBehaviour {
 	void Update () {
 
     }
+
     void Close()
     {
         SceneManager.UnloadSceneAsync("OptionsMenu");
