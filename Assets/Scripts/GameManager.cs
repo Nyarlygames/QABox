@@ -12,6 +12,7 @@ public class GameManager : MonoBehaviour {
     AsyncOperation asyncLoadLevel;
     public List<GameObject> TilesGO = new List<GameObject>();
     public List<GameObject> ObjectsGO = new List<GameObject>();
+    public int ZBackground = 3;
     public int ZGround = 2;
     public int ZObject = 1;
     public int ZPlayer = 0;
@@ -27,11 +28,14 @@ public class GameManager : MonoBehaviour {
         SpriteList.Add("Panel_DontPlay", Resources.Load<Sprite>("Map/Tileset/Panel_DontPlay"));
         SpriteList.Add("Panel_Play", Resources.Load<Sprite>("Map/Tileset/Panel_Play"));
         SpriteList.Add("Panel_Options", Resources.Load<Sprite>("Map/Tileset/Panel_Options"));
+        SpriteList.Add("Panel_Next", Resources.Load<Sprite>("Map/Tileset/Panel_Next"));
         SpriteList.Add("CamLock", Resources.Load<Sprite>("Map/Tileset/CamLock"));
         SpriteList.Add("CamUnlock", Resources.Load<Sprite>("Map/Tileset/CamUnlock"));
         SpriteList.Add("LevelVals", Resources.Load<Sprite>("Map/Tileset/LevelVals"));
         SpriteList.Add("Ladder", Resources.Load<Sprite>("Map/Tileset/Ladder"));
         SpriteList.Add("Player", Resources.Load<Sprite>("Map/Tileset/Player"));
+        SpriteList.Add("Background1", Resources.Load<Sprite>("Map/Tileset/Background1"));
+        SpriteList.Add("Background2", Resources.Load<Sprite>("Map/Tileset/Background2"));
     }
 
     public void Cleanup()
@@ -60,6 +64,13 @@ public class GameManager : MonoBehaviour {
             {
                 Debug.Log("loading");
             }
+        }
+        // cheat next level
+        if (Input.GetKeyDown(KeyCode.N))
+        {
+            PlayerPrefs.SetString("map", PlayerPrefs.GetString("nextmap"));
+            Cleanup();
+            LoadLevel();
         }
     }
 

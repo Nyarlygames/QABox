@@ -68,7 +68,10 @@ public class CameraController : MonoBehaviour {
             }
             CTransform.position = newCamPos;
             if (forbids.Count == 0)
+            {
                 locked = false;
+                lockid = "";
+            }
         }
         /*if (((PControl != null) && (PControl.PTransform != null)) && (lockedvert == true))
         {
@@ -138,6 +141,7 @@ public class CameraController : MonoBehaviour {
         if (coll.tag == "camlock")
              LockCam(coll.GetComponent<ObjectController>());
     }
+
     public void ReplaceCam(GameObject obj, PlayerController PContr)
     {
         CamPos = new Vector3(obj.transform.position.x, PContr.PTransform.position.y + (PContr.PSpriteRend.size.y / 2) + (GM.map.tilesizey / 200), GM.ZCamera);

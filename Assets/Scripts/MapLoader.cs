@@ -120,6 +120,12 @@ public class MapLoader : MonoBehaviour {
 
     public void checkObjModifiers(ObjectSave obj, GameObject curObj, string id)
     {
+
+        if (obj.modifiers.ContainsKey("Background") && (obj.modifiers["Background"] == "true"))
+        {
+            curObj.GetComponent<Transform>().position += new Vector3(0.0f,0.0f,GM.ZBackground);
+        }
+
         // spawning object
         if (obj.modifiers.ContainsKey("spawner") && (obj.modifiers["spawner"] == "true"))
         {

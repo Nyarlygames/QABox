@@ -9,7 +9,7 @@ public class PlayerController : MonoBehaviour
     BoxCollider2D PBoxCollider;
     PhysicsMaterial2D PMat;
     public Rigidbody2D PRigidb;
-    public float speed = 10.0f;
+    public float speed = 15.0f;
     public float speedjump = 1200.0f;
     public float gravity = 5.0f;
     public bool grounded = false;
