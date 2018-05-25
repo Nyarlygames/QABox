@@ -197,7 +197,7 @@
   </object>
   <object id="135" gid="11" x="9554.55" y="4996.97" width="400" height="600"/>
  </objectgroup>
- <objectgroup name="CamLock" visible="0">
+ <objectgroup name="CamLock">
   <object id="121" gid="6" x="10500" y="5500" width="500" height="5492">
    <properties>
     <property name="forbid" value="right"/>

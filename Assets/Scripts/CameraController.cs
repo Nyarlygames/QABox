@@ -13,7 +13,6 @@ public class CameraController : MonoBehaviour {
     Camera Cam;
     bool locked = false;
     bool lockedvert = true;
-    string lockid = "";
     string lockidvert = "";
     List<ObjectController> forbids = new List<ObjectController>();
     List<ObjectController> forbidsvert = new List<ObjectController>();
@@ -52,14 +51,26 @@ public class CameraController : MonoBehaviour {
                     case "left":
                         if (PControl.PTransform.position.x - (Cam.aspect * Cam.orthographicSize) < forbids[i].transform.position.x + forbids[i].GetComponent<SpriteRenderer>().size.x / 2)
                             newCamPos.x = forbids[i].transform.position.x + forbids[i].GetComponent<SpriteRenderer>().size.x / 2 + (Cam.aspect * Cam.orthographicSize);
+                        else if (PControl.direction == 1)
+                        {
+                            newCamPos.x = forbids[i].transform.position.x + forbids[i].GetComponent<SpriteRenderer>().size.x / 2 + (Cam.aspect * Cam.orthographicSize);
+                        }
                         else
+                        {
                             forbids.Remove(forbids[i]);
+                        }
                         break;
                     case "right":
                         if (PControl.PTransform.position.x + (Cam.aspect * Cam.orthographicSize) > forbids[i].transform.position.x - forbids[i].GetComponent<SpriteRenderer>().size.x / 2)
                             newCamPos.x = forbids[i].transform.position.x - forbids[i].GetComponent<SpriteRenderer>().size.x / 2 - (Cam.aspect * Cam.orthographicSize);
+                        else if (PControl.direction == 2)
+                        {
+                            newCamPos.x = forbids[i].transform.position.x - forbids[i].GetComponent<SpriteRenderer>().size.x / 2 - (Cam.aspect * Cam.orthographicSize);
+                        }
                         else
+                        {
                             forbids.Remove(forbids[i]);
+                        }
                         break;
                     default:
                         Debug.Log("wrong forbidden camera movement");
@@ -70,7 +81,6 @@ public class CameraController : MonoBehaviour {
             if (forbids.Count == 0)
             {
                 locked = false;
-                lockid = "";
             }
         }
         /*if (((PControl != null) && (PControl.PTransform != null)) && (lockedvert == true))
@@ -111,35 +121,32 @@ public class CameraController : MonoBehaviour {
     {
         if ((camlock.objSave.modifiers["forbid"] == "right") || (camlock.objSave.modifiers["forbid"] == "left"))
         {
-            lockid = camlock.objSave.modifiers["lockid"];
             forbids.Add(camlock);
             CRigidb.velocity = Vector3.zero;
             locked = true;
         }
-      /*  else
-        {
-            lockidvert = camlock.objSave.modifiers["lockid"];
-            forbidsvert.Add(camlock);
-            CRigidb.velocity = Vector3.zero;
-            lockedvert = true;
-        }*/
-        //Debug.Log("locked" + camlock.objSave.modifiers["lockid"] + " / " + camlock.objSave.modifiers["forbid"]);
     }
 
     public void UnlockCam(ObjectController camunlock)
     {
-        if ((locked == true) && (lockid == camunlock.objSave.modifiers["unlockid"]))
+        if ((locked == true) && (forbids.Find(obj => obj.objSave.modifiers["lockid"] == camunlock.objSave.modifiers["unlockid"]) != null))
         {
-            lockid = "";
-            forbids.Remove(forbids.Find(obj => obj.objSave.modifiers["lockid"] == camunlock.objSave.modifiers["unlockid"]));
+            ObjectController destroyed = forbids.Find(obj => obj.objSave.modifiers["lockid"] == camunlock.objSave.modifiers["unlockid"]);
+            forbids.Remove(destroyed);
+            Destroy(destroyed.gameObject);
             locked = false;
         }
     }
 
+    void OnTriggerStay2D(Collider2D coll)
+    {
+        if ((coll.tag == "camlock") && (!forbids.Contains(coll.GetComponent<ObjectController>())))
+            LockCam(coll.GetComponent<ObjectController>());
+    }
     void OnTriggerEnter2D(Collider2D coll)
     {
-        if (coll.tag == "camlock")
-             LockCam(coll.GetComponent<ObjectController>());
+        if ((coll.tag == "camlock") && (!forbids.Contains(coll.GetComponent<ObjectController>())))
+            LockCam(coll.GetComponent<ObjectController>());
     }
 
     public void ReplaceCam(GameObject obj, PlayerController PContr)

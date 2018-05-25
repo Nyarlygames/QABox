@@ -19,6 +19,7 @@ public class MapLoader : MonoBehaviour {
 
     public void LoadMapGO(MapSave mapfile)
     {
+        GM.UI = GameObject.Find("UI").GetComponent<UIController>();
         LoadGroundGO();
         LoadObjGO();
     }
@@ -193,6 +194,7 @@ public class MapLoader : MonoBehaviour {
         if ((id != "") && (string.Compare(id, "LevelVals") == 0))
         {
             PlayerPrefs.SetString("level", obj.modifiers["Name"]);
+            GM.UI.setLevelName();
             PlayerPrefs.SetString("nextmap", obj.modifiers["NextLevel"]);
             GM.Player.AddComponent(Type.GetType(obj.modifiers["SpeScript"]));
             Destroy(curObj);

@@ -16,7 +16,7 @@ public class PlayerController : MonoBehaviour
     GameManager GM;
     Quaternion RotLeft;
     Quaternion RotRight;
-    int direction = 0; // 1 left 2 right 0 none
+    public int direction = 0; // 1 left 2 right 0 none
 
     void Awake()
     {
@@ -53,13 +53,13 @@ public class PlayerController : MonoBehaviour
             }
             else if ((direction == 0) && (Input.GetKey(KeyCode.RightArrow)) && (!Input.GetKey(KeyCode.LeftArrow)))
             {
-                direction = 1;
-                PTransform.rotation = RotLeft;
+                direction = 2;
+                PTransform.rotation = RotRight;
             }
             else if ((direction == 0) && (!Input.GetKey(KeyCode.RightArrow)) && (Input.GetKey(KeyCode.LeftArrow)))
             {
-                direction = 2;
-                PTransform.rotation = RotRight;
+                direction = 1;
+                PTransform.rotation = RotLeft;
             }
             else if ((!Input.GetKey(KeyCode.LeftArrow)) && (!Input.GetKey(KeyCode.RightArrow)))
                 direction = 0;
@@ -82,9 +82,9 @@ public class PlayerController : MonoBehaviour
 
         // moves
         if (Input.GetKey(KeyCode.LeftArrow) && (direction == 1) && (grounded == true))
-            PRigidb.velocity = new Vector3(-speed, 0.0f, 0.0f);
+            PRigidb.velocity = Vector3.left * speed;
         if (Input.GetKey(KeyCode.RightArrow) && (direction == 2) && (grounded == true))
-            PRigidb.velocity = new Vector3(speed, 0.0f, 0.0f);
+            PRigidb.velocity = Vector3.right * speed;
 
         // reset movement and check for double inputs
         if (Input.GetKeyUp(KeyCode.LeftArrow) && (direction == 1) && (grounded == true))
@@ -155,6 +155,11 @@ public class PlayerController : MonoBehaviour
         }
     }
 
+    /*void OnTriggerStay2D(Collider2D coll)
+    {
+        if (coll.tag == "camunlock")
+            GM.Camera.UnlockCam(coll.GetComponent<ObjectController>());
+    }*/
     void OnTriggerEnter2D(Collider2D coll)
     {
         if (coll.tag == "camunlock")

@@ -10,6 +10,7 @@ public class GameManager : MonoBehaviour {
     public PlayerSave PlayerSave;
     public CameraController Camera;
     AsyncOperation asyncLoadLevel;
+    public UIController UI;
     public List<GameObject> TilesGO = new List<GameObject>();
     public List<GameObject> ObjectsGO = new List<GameObject>();
     public int ZBackground = 3;
@@ -46,6 +47,7 @@ public class GameManager : MonoBehaviour {
         TilesGO.Clear();
         ObjectsGO.Clear();
         Destroy(Player);
+        Destroy(UI);
     }
     
 	void Update () {
