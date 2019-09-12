@@ -37,6 +37,7 @@ public class GameManager : MonoBehaviour {
         SpriteList.Add("Player", Resources.Load<Sprite>("Map/Tileset/Player"));
         SpriteList.Add("Background1", Resources.Load<Sprite>("Map/Tileset/Background1"));
         SpriteList.Add("Background2", Resources.Load<Sprite>("Map/Tileset/Background2"));
+        SpriteList.Add("LoadingScreen", Resources.Load<Sprite>("LoadingScreen"));
     }
 
     public void Cleanup()
@@ -47,7 +48,7 @@ public class GameManager : MonoBehaviour {
         TilesGO.Clear();
         ObjectsGO.Clear();
         Destroy(Player);
-        Destroy(UI);
+        //Destroy(UI);
     }
     
 	void Update () {

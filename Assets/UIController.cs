@@ -6,12 +6,14 @@ using UnityEngine.UI;
 public class UIController : MonoBehaviour {
 
     Text LevelName;
+    public GameObject LoadingScreen;
 
 	void Start () {
-        LevelName = GameObject.Find("LevelName_T").GetComponent<Text>();	
-	}
+        LevelName = GameObject.Find("LevelName_T").GetComponent<Text>();
+        LoadingScreen = GameObject.Find("LoadingScreen");
+        LoadingScreen.SetActive(false);
+    }
 	
-	// Update is called once per frame
 	void Update () {
 		
 	}

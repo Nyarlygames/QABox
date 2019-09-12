@@ -1,32 +1,32 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<map version="1.0" tiledversion="1.1.2" orientation="orthogonal" renderorder="left-up" width="27" height="20" tilewidth="500" tileheight="500" infinite="0" nextobjectid="128">
+<map version="1.0" tiledversion="1.1.2" orientation="orthogonal" renderorder="left-up" width="50" height="20" tilewidth="500" tileheight="500" infinite="0" nextobjectid="221">
  <tileset firstgid="1" source="Tileset/QABoxTiles.tsx"/>
  <tileset firstgid="2" source="Tileset/QABoxObjects.tsx"/>
- <objectgroup name="Background" visible="0">
-  <object id="126" gid="13" x="-16" y="5512" width="13496" height="5528"/>
+ <objectgroup name="Background">
+  <object id="126" gid="13" x="-16" y="9992" width="25064" height="10008"/>
  </objectgroup>
- <layer name="Ground" width="27" height="20">
+ <layer name="Ground" width="50" height="20">
   <data encoding="csv">
-0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
-0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
-0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
-0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
-0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
-0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
-0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
-0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
-0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
-0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
-1,1,1,0,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,0,
-0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
-0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
-0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
-0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
-0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
-0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
-0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
-0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
-0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,1,1,1,1,1,1,1,1,1,1,0,1,1,1,1,1,1,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,0
 </data>
  </layer>
  <objectgroup name="Objects">
@@ -35,61 +35,61 @@
    <properties>
     <property name="Background" value="Background1"/>
     <property name="Name" value="Level 04"/>
-    <property name="NextLevel" value="Assets/Resources/Map/Maps05.tmx"/>
+    <property name="NextLevel" value="Assets/Resources/Map/Maps06.tmx"/>
     <property name="SpeScript" value="PanelsDown"/>
    </properties>
   </object>
-  <object id="80" gid="7" x="1500" y="5500" width="500" height="500">
+  <object id="80" gid="7" x="20500" y="3500" width="500" height="500">
    <properties>
     <property name="panel" value="nextlevel"/>
    </properties>
   </object>
-  <object id="91" gid="10" x="12500" y="5000" width="500" height="500">
+  <object id="91" gid="10" x="24000" y="5000" width="500" height="500">
    <properties>
     <property name="face" value="left"/>
    </properties>
   </object>
-  <object id="92" gid="10" x="12500" y="4500" width="500" height="500">
+  <object id="92" gid="10" x="24000" y="4500" width="500" height="500">
    <properties>
     <property name="face" value="left"/>
    </properties>
   </object>
-  <object id="93" gid="10" x="12500" y="4000" width="500" height="500">
+  <object id="93" gid="10" x="24000" y="4000" width="500" height="500">
    <properties>
     <property name="face" value="left"/>
    </properties>
   </object>
-  <object id="94" gid="10" x="12500" y="3500" width="500" height="500">
+  <object id="94" gid="10" x="24000" y="3500" width="500" height="500">
    <properties>
     <property name="face" value="left"/>
    </properties>
   </object>
-  <object id="95" gid="10" x="12500" y="3000" width="500" height="500">
+  <object id="95" gid="10" x="24000" y="3000" width="500" height="500">
    <properties>
     <property name="face" value="left"/>
    </properties>
   </object>
-  <object id="96" gid="10" x="12500" y="2500" width="500" height="500">
+  <object id="96" gid="10" x="24000" y="2500" width="500" height="500">
    <properties>
     <property name="face" value="left"/>
    </properties>
   </object>
-  <object id="97" gid="10" x="12500" y="2000" width="500" height="500">
+  <object id="97" gid="10" x="24000" y="2000" width="500" height="500">
    <properties>
     <property name="face" value="left"/>
    </properties>
   </object>
-  <object id="98" gid="10" x="12500" y="1000" width="500" height="500">
+  <object id="98" gid="10" x="24000" y="1000" width="500" height="500">
    <properties>
     <property name="face" value="left"/>
    </properties>
   </object>
-  <object id="99" gid="10" x="12500" y="1500" width="500" height="500">
+  <object id="99" gid="10" x="24000" y="1500" width="500" height="500">
    <properties>
     <property name="face" value="left"/>
    </properties>
   </object>
-  <object id="100" gid="10" x="12500" y="500" width="500" height="500">
+  <object id="100" gid="10" x="24000" y="500" width="500" height="500">
    <properties>
     <property name="face" value="left"/>
    </properties>
@@ -144,21 +144,53 @@
     <property name="face" value="right"/>
    </properties>
   </object>
+  <object id="152" gid="10" x="13500" y="4000" width="500" height="500"/>
+  <object id="153" gid="10" x="13000" y="4000" width="500" height="500"/>
+  <object id="154" gid="10" x="12500" y="4000" width="500" height="500"/>
+  <object id="160" gid="10" x="15000" y="4000" width="500" height="500"/>
+  <object id="161" gid="10" x="15000" y="4500" width="500" height="500"/>
+  <object id="162" gid="10" x="15000" y="5000" width="500" height="500"/>
+  <object id="163" gid="10" x="24000" y="6000" width="500" height="500"/>
+  <object id="164" gid="10" x="24000" y="5500" width="500" height="500"/>
+  <object id="165" gid="10" x="24000" y="6500" width="500" height="500"/>
+  <object id="166" gid="10" x="24000" y="7000" width="500" height="500"/>
+  <object id="167" gid="10" x="24000" y="7500" width="500" height="500"/>
+  <object id="168" gid="10" x="24000" y="8000" width="500" height="500"/>
+  <object id="169" gid="10" x="24000" y="8500" width="500" height="500"/>
+  <object id="170" gid="10" x="24000" y="9000" width="500" height="500"/>
+  <object id="171" gid="10" x="24000" y="9500" width="500" height="500"/>
+  <object id="172" gid="10" x="24000" y="10000" width="500" height="500"/>
+  <object id="173" gid="10" x="10000" y="6000" width="500" height="500"/>
+  <object id="174" gid="10" x="10000" y="6500" width="500" height="500"/>
+  <object id="176" gid="10" x="10000" y="7000" width="500" height="500"/>
+  <object id="177" gid="10" x="10000" y="7500" width="500" height="500"/>
+  <object id="178" gid="10" x="10000" y="8000" width="500" height="500"/>
+  <object id="179" gid="10" x="10000" y="8500" width="500" height="500"/>
+  <object id="180" gid="10" x="10000" y="9000" width="500" height="500"/>
+  <object id="181" gid="10" x="10000" y="9500" width="500" height="500"/>
+  <object id="182" gid="10" x="10000" y="10000" width="500" height="500"/>
+  <object id="205" gid="7" x="20500" y="4000" width="500" height="500"/>
+  <object id="207" gid="7" x="20500" y="4500" width="500" height="500"/>
+  <object id="209" gid="7" x="20500" y="5000" width="500" height="500"/>
+  <object id="210" gid="7" x="20500" y="5500" width="500" height="500"/>
+  <object id="211" gid="7" x="20500" y="6000" width="500" height="500"/>
+  <object id="212" gid="7" x="20500" y="7000" width="500" height="500"/>
+  <object id="213" gid="7" x="20500" y="6500" width="500" height="500"/>
+  <object id="214" gid="7" x="20500" y="8000" width="500" height="500"/>
+  <object id="215" gid="7" x="20500" y="7500" width="500" height="500"/>
+  <object id="216" gid="7" x="20500" y="8500" width="500" height="500"/>
+  <object id="217" gid="7" x="20500" y="9000" width="500" height="500"/>
+  <object id="218" gid="7" x="20500" y="9500" width="500" height="500"/>
+  <object id="219" gid="10" x="11000" y="4500" width="500" height="500"/>
+  <object id="220" gid="10" x="11500" y="4500" width="500" height="500"/>
  </objectgroup>
- <objectgroup name="CamLock" visible="0">
-  <object id="121" gid="6" x="13000" y="5500" width="500" height="5492">
+ <objectgroup name="CamLock">
+  <object id="121" gid="6" x="24500" y="9996" width="540" height="10004">
    <properties>
     <property name="forbid" value="right"/>
     <property name="lockid" type="int" value="-1"/>
    </properties>
   </object>
-  <object id="122" gid="6" x="2500" y="5500" width="500" height="5492">
-   <properties>
-    <property name="forbid" value="left"/>
-    <property name="lockid" type="int" value="0"/>
-   </properties>
-  </object>
-  <object id="123" gid="9" x="3000" y="5000" width="500" height="1000"/>
   <object id="124" gid="6" x="0" y="5500" width="500" height="5492">
    <properties>
     <property name="forbid" value="left"/>

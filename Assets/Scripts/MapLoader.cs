@@ -11,6 +11,7 @@ public class MapLoader : MonoBehaviour {
 	void Start ()
     {
         GM = GameObject.Find("GameManager").GetComponent<GameManager>();
+        GM.UI = GameObject.Find("UI").GetComponent<UIController>();
     }
 	
 	void Update () {
@@ -19,7 +20,6 @@ public class MapLoader : MonoBehaviour {
 
     public void LoadMapGO(MapSave mapfile)
     {
-        GM.UI = GameObject.Find("UI").GetComponent<UIController>();
         LoadGroundGO();
         LoadObjGO();
     }
